@@ -57,7 +57,7 @@ Build mode: learn
 Activity and evidence: Opened the generated app map and reviewed the UI-to-API-to-Groq-to-download route.
 Route and stops: File selection; multipart API; extraction and validation; Groq/schema; result and named exports.
 Edit outcome: Definitions-section extension practice offered; learner choice pending.
-Reflection: The learner asked for clarification; explain the transfer prompt, with an answer pending.
+Reflection: Clarified that the transfer prompt asks which app pattern could be reused in the learner's BookMyShow-inspired project; no specific pattern was named.
 Activity mode: Brief code tour and practice prompt.
 
 ## Revisions
