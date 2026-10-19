@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { createApp } from '../app.js';
+import { createTextPdf } from './helpers/createTextPdf.js';
 
 const expectedSummary = {
   chapters: [{
@@ -47,6 +48,33 @@ test('accepts a TXT upload and returns validated summary data', async () => {
   assert.equal(received[0].chapters[0].title, 'Chapter 1: Fractions');
 });
 
+test('accepts a text-based PDF upload and passes extracted chapters to summarization', async () => {
+  const received = [];
+  const app = createApp({
+    summarize: async (chapters, instruction) => {
+      received.push({ chapters, instruction });
+      return expectedSummary;
+    },
+  });
+
+  await withServer(app, async (baseUrl) => {
+    const form = new FormData();
+    form.append('document', new Blob([
+      createTextPdf(['Chapter 1: Fractions', 'Fractions represent parts of a whole.']),
+    ], { type: 'application/pdf' }), 'lesson.pdf');
+    form.append('instruction', 'Focus on fractions');
+
+    const response = await fetch(`${baseUrl}/api/summarize`, { method: 'POST', body: form });
+    assert.equal(response.status, 200);
+    assert.deepEqual(await response.json(), expectedSummary);
+  });
+
+  assert.equal(received[0].instruction, 'Focus on fractions');
+  assert.deepEqual(received[0].chapters, [
+    { title: 'Chapter 1: Fractions', text: 'Fractions represent parts of a whole.' },
+  ]);
+});
+
 test('returns a clear client error for unstructured input', async () => {
   const app = createApp({ summarize: async () => expectedSummary });
 
@@ -69,7 +97,9 @@ test('rejects unsupported upload types', async () => {
 
     const response = await fetch(`${baseUrl}/api/summarize`, { method: 'POST', body: form });
     assert.equal(response.status, 415);
-    assert.equal((await response.json()).error.code, 'UNSUPPORTED_FILE_TYPE');
+    const result = await response.json();
+    assert.equal(result.error.code, 'UNSUPPORTED_FILE_TYPE');
+    assert.match(result.error.message, /\.pdf/);
   });
 });
 

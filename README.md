@@ -4,14 +4,14 @@ A proof of concept that turns a chapter-organized text document into study notes
 
 ## Run locally
 
-1. Install Node.js 22.12 or newer.
+1. Install Node.js 22.13 or newer.
 2. Run `npm install`.
 3. Copy `.env.example` to `.env` and add your Groq API key to `.env` on your computer. Never paste the key into source files or commit `.env`.
 4. In one terminal, run `npm run dev:server`.
 5. In another terminal, run `npm run dev:client`.
-6. Open `http://localhost:5173` and upload the sample chapter document or a chapter-organized `.txt` file.
+6. Open `http://localhost:5173` and try the sample TXT or PDF, or upload your chapter-organized `.txt` or text-based `.pdf` file.
 
-The first build slice supports plain-text `.txt` input. Text-based PDFs are added in a later slice. Extracted document text is sent to Groq for processing; do not upload confidential documents.
+The app accepts plain-text `.txt` files and text-based PDFs. Scanned/image-only PDFs and Word documents are not supported. Extracted document text is sent to Groq for processing; do not upload confidential documents.
 
 ## Checks
 

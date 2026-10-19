@@ -13,17 +13,15 @@ export default function DocumentForm({
       </label>
       <input
         id="study-document"
-        accept=".txt,text/plain"
+        accept=".txt,.pdf,text/plain,application/pdf"
         className="file-input"
         onChange={onFileChange}
         type="file"
       />
       <p className="field-hint">
-        This first version accepts chapter-organized plain text.{' '}
-        <a href="/sample-chapters.txt" download>
-          Get the sample document
-        </a>
-        .
+        Choose a chapter-organized text file or a text-based PDF. Scanned PDFs are not supported.{' '}
+        Try the sample: <a href="/sample-chapters.txt" download>TXT</a> or{' '}
+        <a href="/sample-chapters.pdf" download>PDF</a>.
       </p>
 
       <label className="field-label" htmlFor="focus-instruction">

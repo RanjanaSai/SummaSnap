@@ -19,7 +19,7 @@ Build mode: learn
   Learner check: Open the local app, submit the included multi-chapter TXT sample with and without a chapter/topic instruction, and check that the displayed chapters and study sections match what you expected.
   Commit: `Add TXT chapter summarization flow`
 
-- [ ] **2. Summarize text-based PDFs through the same study flow**
+- [x] **2. Summarize text-based PDFs through the same study flow**
   Becomes usable: Students can use either supported input format—TXT or a text-based PDF—and receive the same chapter-organized study notes; unreadable or unstructured files get a clear recovery message.
   Why now: The chapter-summary path is already working on TXT, so this adds the important study-document format while isolating PDF extraction and its known formula/chapter-boundary risks.
   PRD ref: `prd.md > Document Summarization`, `prd.md > States and Boundaries`, `prd.md > What We're Building`
@@ -41,7 +41,7 @@ Build mode: learn
 
 ## Hands-on Checkpoints
 
-- [x] Early usable behavior explored — tried the bundled TXT sample; the learner confirmed it worked and clarified that text-based PDF support is needed for their own study material, which is the next slice.
+- [x] Early usable behavior explored — tried the bundled TXT sample and later the bundled text-based PDF sample; the learner confirmed both worked and clarified that selectable-text PDF support is needed for their own study material.
 - [ ] Final kick-the-tires exploration and feedback completed — after slice 3, before revisions and ship preparation.
 
 ## Final Review

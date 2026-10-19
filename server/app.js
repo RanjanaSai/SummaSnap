@@ -23,7 +23,7 @@ export function createApp(options = {}) {
     }
 
     if (error instanceof multer.MulterError) {
-      response.status(400).json({ error: { code: error.code, message: 'Choose one .txt document to summarize.' } });
+      response.status(400).json({ error: { code: error.code, message: 'Choose one .txt or text-based .pdf document.' } });
       return;
     }
 
@@ -37,7 +37,7 @@ export function createApp(options = {}) {
       return;
     }
 
-    if (error.message === 'For this first version, choose a plain-text .txt document.') {
+    if (error.message === 'Choose a plain-text .txt document or a text-based .pdf document.') {
       response.status(415).json({ error: { code: 'UNSUPPORTED_FILE_TYPE', message: error.message } });
       return;
     }

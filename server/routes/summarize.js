@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import multer from 'multer';
-import { extractTxtChapters } from '../services/extractDocumentText.js';
+import { extractDocumentChapters } from '../services/extractDocumentText.js';
 import { summarizeChapters } from '../services/groqSummarizer.js';
 
 const maxUploadBytes = 2 * 1024 * 1024;
@@ -16,19 +16,22 @@ export function createSummarizeRouter({ summarize = summarizeChapters } = {}) {
       parts: 2,
     },
     fileFilter(_request, file, callback) {
-      const extensionMatches = file.originalname.toLowerCase().endsWith('.txt');
-      const typeMatches = !file.mimetype || file.mimetype === 'text/plain' || file.mimetype === 'application/octet-stream';
-      if (extensionMatches && typeMatches) {
+      const filename = file.originalname.toLowerCase();
+      const isTxt = filename.endsWith('.txt')
+        && ['text/plain', 'application/octet-stream'].includes(file.mimetype);
+      const isPdf = filename.endsWith('.pdf')
+        && ['application/pdf', 'application/octet-stream'].includes(file.mimetype);
+      if (isTxt || isPdf) {
         callback(null, true);
       } else {
-        callback(new Error('For this first version, choose a plain-text .txt document.'));
+        callback(new Error('Choose a plain-text .txt document or a text-based .pdf document.'));
       }
     },
   });
 
   router.post('/summarize', upload.single('document'), async (request, response, next) => {
     if (!request.file) {
-      response.status(400).json({ error: { code: 'MISSING_DOCUMENT', message: 'Choose a .txt study document first.' } });
+      response.status(400).json({ error: { code: 'MISSING_DOCUMENT', message: 'Choose a .txt or text-based .pdf study document first.' } });
       return;
     }
 
@@ -45,7 +48,7 @@ export function createSummarizeRouter({ summarize = summarizeChapters } = {}) {
     }
 
     try {
-      const chapters = extractTxtChapters(request.file.buffer);
+      const chapters = await extractDocumentChapters(request.file.buffer, request.file.originalname);
       const result = await summarize(chapters, instruction);
       response.json(result);
     } catch (error) {
