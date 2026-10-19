@@ -1,0 +1,7 @@
+﻿/devpost/learner-profile.md
+/BW1/
+/node_modules/
+/client/dist/
+.env
+.env.*
+!.env.example

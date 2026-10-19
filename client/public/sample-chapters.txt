@@ -1,0 +1,15 @@
+Chapter 1: Fractions
+
+Fractions represent parts of a whole. The numerator is the top number and the denominator is the bottom number. A denominator cannot be zero.
+
+Formula: a/b + c/d = (ad + bc)/bd
+
+Theorem: Fractions with the same denominator can be added by adding their numerators and keeping the denominator unchanged.
+
+Chapter 2: Linear Equations
+
+A linear equation has a variable whose highest power is one. Solving an equation means finding values that make both sides equal.
+
+Formula: ax + b = c, so x = (c - b)/a when a is not zero.
+
+Theorem: Adding or subtracting the same value on both sides of an equation preserves its solutions.
