@@ -1,3 +1,5 @@
+import MarkdownDownload from './MarkdownDownload.jsx';
+
 function StudySection({ items, title }) {
   return (
     <section className="study-section">
@@ -25,6 +27,7 @@ export default function SummaryResults({ chapters }) {
         </div>
         <span className="chapter-count">{chapters.length} {chapters.length === 1 ? 'chapter' : 'chapters'}</span>
       </div>
+      <MarkdownDownload chapters={chapters} />
       <div className="chapter-list">
         {chapters.map((chapter, index) => (
           <article className="chapter-card" key={`${chapter.title}-${index}`}>

@@ -17,6 +17,17 @@ The app accepts plain-text `.txt` files and text-based PDFs. Scanned/image-only 
 
 Run `npm test` for the server's document, schema, and request tests. Run `npm run build` to verify the production client build.
 
+## Deploy on Render
+
+Create a Render Web Service from the GitHub repository with:
+
+- **Build command:** `npm install && npm run build`
+- **Start command:** `npm start`
+- **Environment variable:** `GROQ_API_KEY` (set the value in Render's Environment settings; do not add it to the repository)
+- **Health check path:** `/health`
+
+The Express service serves the built client and API from the same origin and listens on Render's `PORT`. Uploads are processed in memory and are not saved on the server. The free service may sleep while idle and take time to wake.
+
 ## Environment
 
 - `GROQ_API_KEY` — required on the server for real summaries.

@@ -29,7 +29,7 @@ Build mode: learn
   Learner check: Upload a text-based study PDF and a plain-text file; confirm both produce chapter sections, then try an unsupported or unstructured file and check the recovery message.
   Commit: `Add PDF study-document support`
 
-- [ ] **3. Download named Markdown notes and prepare the Render production app**
+- [x] **3. Download named Markdown notes and prepare the Render production app**
   Becomes usable: Students can name and download the generated notes as a readable `.md` file, and the complete client/API app builds and runs from one production Express service ready for the agreed Render deployment.
   Why now: Saving completes the PRD journey; production serving and health checks make the same working app deployable without adding a separate frontend service or any persistent server storage.
   PRD ref: `prd.md > The Core Journey` (step 4), `prd.md > Saving a Summary`, `prd.md > States and Boundaries`

@@ -11,7 +11,7 @@
     "dev:server": "node --watch server/index.js",
     "build": "vite build --config client/vite.config.js",
     "start": "node server/index.js",
-    "test": "node --test server/test/extractDocumentText.test.js server/test/groqSummarizer.test.js server/test/summarizeRoute.test.js"
+    "test": "node --test server/test/extractDocumentText.test.js server/test/groqSummarizer.test.js server/test/summarizeRoute.test.js server/test/markdownExport.test.js"
   },
   "dependencies": {
     "dotenv": "^18.0.8",

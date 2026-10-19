@@ -175,6 +175,7 @@ a {
 }
 
 .file-input,
+input[type="text"],
 textarea {
   width: 100%;
   border: 1px solid var(--line);
@@ -195,7 +196,24 @@ textarea {
   line-height: 1.5;
 }
 
+.download-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.download-controls input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fcfdfd;
+  color: var(--ink);
+}
+
 .file-input:focus-visible,
+input[type="text"]:focus-visible,
 textarea:focus-visible,
 button:focus-visible,
 a:focus-visible {
@@ -262,6 +280,27 @@ a:focus-visible {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 20px;
+}
+
+.markdown-download {
+  margin-bottom: 22px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--soft);
+}
+
+.markdown-download .field-label {
+  display: block;
+  margin: 0 0 9px;
+}
+
+.markdown-download .primary-button {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.markdown-download .field-hint {
+  margin: 8px 0 0;
 }
 
 .chapter-count {
@@ -350,5 +389,14 @@ a:focus-visible {
 
   .results-heading {
     align-items: flex-start;
+  }
+
+  .download-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .markdown-download .primary-button {
+    align-self: flex-start;
   }
 }

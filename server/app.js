@@ -1,8 +1,11 @@
 import express from 'express';
 import multer from 'multer';
+import { fileURLToPath } from 'node:url';
 import { createSummarizeRouter } from './routes/summarize.js';
 import { DocumentInputError } from './services/extractDocumentText.js';
 import { SummarizerError } from './services/groqSummarizer.js';
+
+const clientBuildPath = fileURLToPath(new URL('../client/dist/', import.meta.url));
 
 export function createApp(options = {}) {
   const app = express();
@@ -11,6 +14,14 @@ export function createApp(options = {}) {
     response.json({ status: 'ok' });
   });
   app.use('/api', createSummarizeRouter(options));
+  app.use(express.static(clientBuildPath));
+  app.get(/.*/, (request, response, next) => {
+    if (request.path.startsWith('/api/')) {
+      next();
+      return;
+    }
+    response.sendFile(fileURLToPath(new URL('../client/dist/index.html', import.meta.url)));
+  });
   app.use((error, _request, response, next) => {
     if (response.headersSent) {
       next(error);

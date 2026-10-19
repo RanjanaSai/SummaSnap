@@ -48,7 +48,7 @@ Local PDF / TXT + optional instruction
 - **JavaScript** — the learner's established language from their React and BookMyShow-inspired project.
 - **React** — the learner has built with it before; it powers the browser interface.
 - **Vite** — builds and serves the React client during development. The compiled client files are served by Express in production. [Vite guide](https://vite.dev/guide/).
-- **Node.js** — local development works with Node 22.12 or newer; the project pins Node 24 for Render using `.node-version`. Node 24 is an LTS release. [Node.js release schedule](https://nodejs.org/en/about/previous-releases).
+- **Node.js** — local development works with Node 22.13 or newer; the project pins Node 24 for Render using `.node-version`. Node 24 is an LTS release. [Node.js release schedule](https://nodejs.org/en/about/previous-releases).
 - **Express 5** — handles the summary API and serves the built React files. [Express static files](https://expressjs.com/en/starter/static-files/).
 - **Multer** — an Express helper that unpacks a browser file-upload request; configure memory storage and a size limit so uploads are temporary and are not written to the service's filesystem. [Multer documentation](https://expressjs.com/en/resources/middleware/multer/).
 - **PDF.js (`pdfjs-dist`)** — extracts selectable text from PDFs; plain-text `.txt` files are decoded as UTF-8. This does not perform OCR or guarantee exact equation layout. [PDF.js getting started](https://mozilla.github.io/pdf.js/getting_started/).
@@ -59,7 +59,7 @@ Use compatible current stable package versions and commit the generated lockfile
 
 ## Where It Runs and How Someone Tries It
 
-- **Local development:** Requires Node.js 22.12 or newer and a Groq API key. Keep the key in a local `.env` file, ignored by the existing `.gitignore`; never put a real key in source code, `.env.example`, the browser, or chat.
+- **Local development:** Requires Node.js 22.13 or newer and a Groq API key. Keep the key in a local `.env` file, ignored by the existing `.gitignore`; never put a real key in source code, `.env.example`, the browser, or chat.
 - **Local start:** From the repository root, run `npm install`. Start the Express server with `npm run dev:server` in one terminal and the Vite client with `npm run dev:client` in a second terminal. Open `http://localhost:5173`. Vite proxies `/api` calls to the local Express server.
 - **Render deployment:** Deploy one Render Web Service from the public GitHub repository. Build with `npm install && npm run build`; start with `npm start`. Express must listen on `process.env.PORT` and `0.0.0.0`, serve the client build, and expose a simple health-check route. Configure `GROQ_API_KEY` as a Render secret/environment variable.
 - **Free-plan behavior:** Render's free web service can spin down after 15 minutes idle and take about a minute to wake. Its filesystem is ephemeral. The app's no-server-storage design avoids relying on that filesystem, but the cold start can delay a demo. [Render web services](https://render.com/docs/web-services), [Render free services](https://render.com/docs/free).
@@ -131,10 +131,11 @@ project/
 │       ├── main.jsx
 │       ├── App.jsx                # Study workspace and interaction states
 │       ├── api.js                 # Calls the Express summary endpoint
+│       ├── markdown.js            # Builds safe Markdown content and download names
 │       ├── components/
 │       │   ├── DocumentForm.jsx   # File selection, focus, summarize action
 │       │   ├── SummaryResults.jsx
-│       │   └── SaveMarkdownButton.jsx
+│       │   └── MarkdownDownload.jsx
 │       └── styles.css
 ├── server/
 │   ├── app.js                     # Express app factory and request error handling
@@ -149,7 +150,8 @@ project/
 │   └── test/                      # Node's built-in test runner
 │       ├── extractDocumentText.test.js
 │       ├── groqSummarizer.test.js
-│       └── summarizeRoute.test.js
+│       ├── summarizeRoute.test.js
+│       └── markdownExport.test.js
 ├── devpost/                       # Learning plan documents
 ├── .env.example                   # Variable names only; no real credentials
 ├── .gitignore
