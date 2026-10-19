@@ -50,15 +50,15 @@ Build mode: learn
 
 ## Code Tour and App Map
 
-- [ ] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
-- [ ] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
-- [ ] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
+- [x] Learning activity complete — guided app route and a brief summary of the end-to-end slice pattern are included in the app map.
+- [x] Optional edit and transfer reflection addressed — a project-grounded practice and transfer prompt are offered.
+- [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse.
 
-Activity and evidence: Not started.
-Route and stops: Not started.
-Edit outcome: Not applicable yet.
-Reflection: Not offered yet.
-Activity mode: Not started.
+Activity and evidence: Opened the generated app map and reviewed the UI-to-API-to-Groq-to-download route.
+Route and stops: File selection; multipart API; extraction and validation; Groq/schema; result and named exports.
+Edit outcome: Definitions-section extension practice offered; learner choice pending.
+Reflection: The learner asked for clarification; explain the transfer prompt, with an answer pending.
+Activity mode: Brief code tour and practice prompt.
 
 ## Revisions
 
