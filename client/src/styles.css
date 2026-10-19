@@ -197,14 +197,12 @@ textarea {
 }
 
 .download-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: grid;
+  gap: 10px;
 }
 
 .download-controls input {
   min-width: 0;
-  flex: 1;
   padding: 12px 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -282,25 +280,53 @@ a:focus-visible {
   margin-bottom: 20px;
 }
 
-.markdown-download {
+.summary-download {
   margin-bottom: 22px;
   padding: 18px;
   border-radius: 12px;
   background: var(--soft);
 }
 
-.markdown-download .field-label {
+.summary-download .field-label {
   display: block;
   margin: 0 0 9px;
 }
 
-.markdown-download .primary-button {
-  flex: 0 0 auto;
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.summary-download .primary-button,
+.secondary-button {
   margin: 0;
 }
 
-.markdown-download .field-hint {
+.secondary-button {
+  padding: 12px 19px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  color: var(--teal-dark);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.summary-download .field-hint {
   margin: 8px 0 0;
+}
+
+.download-message {
+  margin: 8px 0 0;
+  color: var(--teal-dark);
+  font-size: 13px;
 }
 
 .chapter-count {
@@ -392,11 +418,16 @@ a:focus-visible {
   }
 
   .download-controls {
-    align-items: stretch;
-    flex-direction: column;
+    width: 100%;
   }
 
-  .markdown-download .primary-button {
+  .download-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summary-download .primary-button,
+  .secondary-button {
     align-self: flex-start;
   }
 }

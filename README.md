@@ -13,6 +13,8 @@ A proof of concept that turns a chapter-organized text document into study notes
 
 The app accepts plain-text `.txt` files and text-based PDFs. Scanned/image-only PDFs and Word documents are not supported. Extracted document text is sent to Groq for processing; do not upload confidential documents.
 
+Generated notes can be downloaded as either Markdown (`.md`) or plain text (`.txt`).
+
 ## Checks
 
 Run `npm test` for the server's document, schema, and request tests. Run `npm run build` to verify the production client build.

@@ -55,11 +55,13 @@ Develops `scope.md > The Unique Kernel` and `The POC Boundary`.
 Develops `scope.md > The Core Loop` and `What "Working" Looks Like`.
 
 - The student can save the generated summary as a copy on their computer and provide its name.
+- The student can choose a readable Markdown (`.md`) or plain-text (`.txt`) download.
 - The saved copy is for the student's future reference.
 - The app does not maintain an account-based or in-app library in this proof of concept. Students manage saved copies on their computer.
 - **Acceptance criteria**
   - The student can provide a name when saving a generated summary.
-  - After saving, the app confirms that the copy was saved.
+  - The student can download the named summary in Markdown or plain-text format.
+  - After starting a download, the app identifies the format and filename.
 
 ## States and Boundaries
 
@@ -67,7 +69,7 @@ Develops `scope.md > The Core Loop` and `What "Working" Looks Like`.
 - **Processing** — Indicate that the document is being summarized.
 - **Successful result** — Show the chapter-organized notes and the option to save a named copy.
 - **Unreadable or unstructured document** — Explain that readable chapter sections could not be found, do not show a fabricated summary, and let the student choose another document.
-- **Saved result** — Confirm the local copy was saved. Reopening or deleting saved copies is handled outside the app in this proof of concept.
+- **Saved result** — Confirm the chosen format and filename are downloading. Reopening or deleting saved copies is handled outside the app in this proof of concept.
 
 ## Product Decisions
 
@@ -83,7 +85,7 @@ Develops `scope.md > The Core Loop` and `What "Working" Looks Like`.
 - A student-facing workspace for selecting one local study document.
 - Optional focused instructions by chapter number, chapter title, or topic.
 - Chapter-by-chapter summaries with distinct main-points, formulas, and theorems sections when the source contains them.
-- A way to save a generated summary as a named copy on the student's computer.
+- A way to save a generated summary as a named Markdown or plain-text copy on the student's computer.
 - Clear first-use, processing, successful-result, and unusable-document states.
 
 ## Deferred From the POC

@@ -29,24 +29,24 @@ Build mode: learn
   Learner check: Upload a text-based study PDF and a plain-text file; confirm both produce chapter sections, then try an unsupported or unstructured file and check the recovery message.
   Commit: `Add PDF study-document support`
 
-- [x] **3. Download named Markdown notes and prepare the Render production app**
-  Becomes usable: Students can name and download the generated notes as a readable `.md` file, and the complete client/API app builds and runs from one production Express service ready for the agreed Render deployment.
+- [x] **3. Download named study notes and prepare the Render production app**
+  Becomes usable: Students can name and download the generated notes as a readable `.md` or `.txt` file, and the complete client/API app builds and runs from one production Express service ready for the agreed Render deployment.
   Why now: Saving completes the PRD journey; production serving and health checks make the same working app deployable without adding a separate frontend service or any persistent server storage.
   PRD ref: `prd.md > The Core Journey` (step 4), `prd.md > Saving a Summary`, `prd.md > States and Boundaries`
-  Spec ref: `spec.md > Components > Markdown Download`, `spec.md > Components > Express Static App and Render Runtime`, `spec.md > Where It Runs and How Someone Tries It`, `spec.md > External Services and Dependencies`
-  Build: Add a name field and browser-side Markdown download with chapter headings and distinct main-points/formulas/theorems sections. Add production scripts so Express serves the Vite build and API from one origin, binds to Render's port on `0.0.0.0`, and provides a health-check route. Document Render's build/start commands and secret configuration; do not deploy or publish the repository before the `6-ship` publication step.
-  Verify (mechanical): Run `npm test` and `npm run build`; start with `npm start`, verify the health route succeeds, complete a local summary flow, download the named `.md` file, and inspect its headings and content. Confirm no upload or result is written to server disk and no secret is present in the client build.
-  Learner check: Generate a summary, enter a filename, download it, and open the `.md` file outside the app. Confirm its chapter sections are readable and the chosen name appears in the downloaded filename.
-  Commit: `Add Markdown export and production serving`
+  Spec ref: `spec.md > Components > Named Summary Downloads`, `spec.md > Components > Express Static App and Render Runtime`, `spec.md > Where It Runs and How Someone Tries It`, `spec.md > External Services and Dependencies`
+  Build: Add a name field and browser-side Markdown and plain-text downloads with chapter headings and distinct main-points/formulas/theorems sections. Add production scripts so Express serves the Vite build and API from one origin, binds to Render's port on `0.0.0.0`, and provides a health-check route. Document Render's build/start commands and secret configuration; do not deploy or publish the repository before the `6-ship` publication step.
+  Verify (mechanical): Run `npm test` and `npm run build`; start with `npm start`, verify the health route succeeds, complete a local summary flow, download both named formats, and inspect their headings and content. Confirm no upload or result is written to server disk and no secret is present in the client build.
+  Learner check: Generate a summary, enter a filename, download both `.md` and `.txt` files, and open them outside the app. Confirm both are readable, contain the study sections, and use the chosen name in each filename.
+  Commit: `Add named text summary download`
 
 ## Hands-on Checkpoints
 
 - [x] Early usable behavior explored — tried the bundled TXT sample and later the bundled text-based PDF sample; the learner confirmed both worked and clarified that selectable-text PDF support is needed for their own study material.
-- [ ] Final kick-the-tires exploration and feedback completed — after slice 3, before revisions and ship preparation.
+- [x] Final kick-the-tires exploration and feedback completed — the learner reported the app was working, requested plain-text export alongside Markdown, then confirmed the `.txt` download opened correctly.
 
 ## Final Review
 
-- [ ] Final review complete — feedback resolved and learner confirms ready to ship
+- [x] Final Review complete — feedback was resolved and the learner reported the app was working.
 
 ## Code Tour and App Map
 
@@ -61,3 +61,5 @@ Reflection: Not offered yet.
 Activity mode: Not started.
 
 ## Revisions
+
+- Added plain-text `.txt` downloads alongside Markdown after the learner requested both formats; the learner confirmed the downloaded text file opened correctly.
