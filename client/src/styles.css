@@ -1,7 +1,7 @@
 :root {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #193d3b;
-  background: #f5f8f7;
+  background: #fff8fa;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -9,9 +9,10 @@
   --muted: #657c79;
   --teal: #267c72;
   --teal-dark: #1c625b;
+  --pink: #a84868;
   --paper: #ffffff;
-  --line: #dce8e4;
-  --soft: #eaf4f1;
+  --line: #eedfe5;
+  --soft: #fff0f4;
   --error: #9c3d37;
 }
 
@@ -38,7 +39,7 @@ a {
 .page-shell {
   width: min(100% - 40px, 880px);
   margin: 0 auto;
-  padding-bottom: 54px;
+  padding-bottom: max(54px, env(safe-area-inset-bottom));
 }
 
 .site-header {
@@ -86,7 +87,7 @@ a {
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--teal);
+  color: var(--pink);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -137,7 +138,7 @@ a {
   place-items: center;
   border-radius: 12px;
   background: var(--soft);
-  color: var(--teal-dark);
+  color: var(--pink);
   font-size: 12px;
   font-weight: 800;
 }
@@ -189,10 +190,23 @@ textarea {
   font-size: 14px;
 }
 
+.file-input::file-selector-button {
+  min-height: 40px;
+  margin-right: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #ffe5ed;
+  color: var(--pink);
+  font: inherit;
+  font-weight: 650;
+}
+
 textarea {
   min-height: 90px;
   padding: 12px 14px;
   resize: vertical;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -203,11 +217,13 @@ textarea {
 
 .download-controls input {
   min-width: 0;
+  min-height: 46px;
   padding: 12px 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fcfdfd;
   color: var(--ink);
+  font-size: 16px;
 }
 
 .file-input:focus-visible,
@@ -227,6 +243,7 @@ a:focus-visible {
 .primary-button {
   justify-self: start;
   margin-top: 12px;
+  min-height: 46px;
   padding: 12px 19px;
   border: 0;
   border-radius: 10px;
@@ -304,6 +321,7 @@ a:focus-visible {
 }
 
 .secondary-button {
+  min-height: 46px;
   padding: 12px 19px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -357,6 +375,7 @@ a:focus-visible {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 21px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .study-section + .study-section {
@@ -375,8 +394,9 @@ a:focus-visible {
   margin: 0;
   padding-left: 20px;
   color: #385754;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .study-section li + li {
@@ -402,32 +422,88 @@ a:focus-visible {
 
   .site-header {
     min-height: 68px;
+    gap: 10px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .brand-mark {
+    flex: 0 0 32px;
   }
 
   .header-note {
-    max-width: 100px;
+    max-width: 92px;
     text-align: right;
   }
 
   .hero {
-    padding-top: 43px;
+    padding: 38px 0 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+  .hero-copy {
+    font-size: 15px;
   }
 
   .results-heading {
     align-items: flex-start;
   }
 
-  .download-controls {
-    width: 100%;
+  .file-input {
+    min-height: 48px;
+    font-size: 13px;
   }
 
   .download-buttons {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .summary-download .primary-button,
   .secondary-button {
-    align-self: flex-start;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .chapter-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-shell {
+    width: calc(100% - 24px);
+  }
+
+  .header-note {
+    max-width: 78px;
+    font-size: 12px;
+  }
+
+  .workspace,
+  .results-panel {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .workspace-intro {
+    gap: 11px;
+  }
+
+  .workspace-intro h2,
+  .results-heading h2 {
+    font-size: 18px;
+  }
+
+  .results-heading {
+    flex-direction: column;
+    gap: 10px;
   }
 }

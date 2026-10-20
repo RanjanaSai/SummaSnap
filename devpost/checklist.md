@@ -63,3 +63,4 @@ Activity mode: Brief code tour and practice prompt.
 ## Revisions
 
 - Added plain-text `.txt` downloads alongside Markdown after the learner requested both formats; the learner confirmed the downloaded text file opened correctly.
+- Improved narrow-screen controls and spacing and added light-pink interface accents at the learner's request.

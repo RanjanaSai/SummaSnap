@@ -37,7 +37,7 @@ export default function App() {
     <main className="page-shell">
       <header className="site-header">
         <a className="brand" href="/" aria-label="SummaSnap home">
-          <span aria-hidden="true" className="brand-mark">C</span>
+          <span aria-hidden="true" className="brand-mark">S</span>
           <span>SummaSnap</span>
         </a>
         <span className="header-note">A clearer way to review</span>
