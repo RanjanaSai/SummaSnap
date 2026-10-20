@@ -5,5 +5,5 @@ const port = Number(process.env.PORT) || 3001;
 const app = createApp();
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`Chapter Study Notes server listening on port ${port}`);
+  console.log(`SummaSnap server listening on port ${port}`);
 });

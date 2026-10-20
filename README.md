@@ -1,6 +1,6 @@
-# Chapter Study Notes
+# SummaSnap
 
-A proof of concept that turns a chapter-organized text document into study notes with main points, formulas, and theorems.
+SummaSnap turns a chapter-organized study document into notes with main points, formulas, and theorems.
 
 ## Run locally
 

@@ -3,7 +3,7 @@ doc: scope
 status: approved
 ---
 
-# AI-Powered Chapter Study Notes
+# SummaSnap — AI-Powered Chapter Study Notes
 
 Turn one long, multi-chapter study document into organized notes that help a student review each chapter.
 

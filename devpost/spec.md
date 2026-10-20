@@ -3,7 +3,7 @@ doc: spec
 status: approved
 ---
 
-# AI-Powered Chapter Study Notes — Technical Spec
+# SummaSnap — Technical Spec
 
 ## How This Works, In Plain Language
 

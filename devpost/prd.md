@@ -3,7 +3,7 @@ doc: prd
 status: approved
 ---
 
-# AI-Powered Chapter Study Notes — Product Requirements
+# SummaSnap — Product Requirements
 
 Turn a multi-chapter study document into chapter-organized study notes for students. Builds on `scope.md > The Unique Kernel`, `The Core Loop`, and `The POC Boundary`.
 
